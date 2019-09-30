@@ -11,9 +11,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author: znlccy
@@ -74,8 +72,25 @@ public class BlogController {
         return INPUT;
     }
 
-    @PostMapping(value = "")
-    public String post() {
+    /**
+     * 博客新增功能
+     * @param blog
+     * @param model
+     * @return
+     */
+    @PostMapping(value = "/blogs")
+    public String save(@RequestBody Blog blog, Model model) {
+        return "";
+    }
+
+    /**
+     * 博客编辑页面
+     * @param id
+     * @param blog
+     * @return
+     */
+    @PostMapping
+    public String edit(@PathVariable Long id, @RequestBody Blog blog) {
         return "";
     }
 
