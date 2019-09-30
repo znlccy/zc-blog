@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="common/common_fragment :: head(~{::title})">
+    <title>博客关于我</title>
+</head>
+<body>
+
+    <!-- 导航部分 开始 -->
+    <nav th:replace="common/common_fragment :: menu(5)"></nav>
+    <!-- 导航部分 结束 -->
+
+    <!-- 主体部分 开始 -->
+    <div class="m-container m-padded-tb-big">
+        <div class="container">
+            <div class="ui stackable grid">
+                <div class="eleven wide column">
+                    <div class="ui segment">
+                        <img src="https://picsum.photos/id/1005/800/600" alt="" class="ui rounded image">
+                    </div>
+                </div>
+                <div class="five wide column">
+                   <div class="ui top attached segment">
+                       <div class="ui header">关于我</div>
+                   </div>
+                    <div class="ui attached segment">
+                        <p class="m-text">则AA就到沙发上较发达阿娇打飞机啊死的肌肤 i 阿斯顿发送旧爱是独家发售的发送到发送打飞机啊薮的发送打飞机阿水淀粉</p>
+                        <p class="m-text">阿斯顿集发售决定撒的发哦睡到死的肌肤 i 啊姐姐爱对方阿斯顿发送基督教发送地方</p>
+                    </div>
+                    <div class="ui attached segment">
+                        <div class="ui orange basic left pointing label">编程</div>
+                        <div class="ui orange basic left pointing label">写作</div>
+                        <div class="ui orange basic left pointing label">绘画</div>
+                        <div class="ui orange basic left pointing label">游玩</div>
+                    </div>
+                    <div class="ui attached segment">
+                        <div class="ui teal basic left pointing label m-padded-tb-tiny">Java</div>
+                        <div class="ui teal basic left pointing label m-padded-tb-tiny">JavaScript</div>
+                        <div class="ui teal basic left pointing label m-padded-tb-tiny">Vue</div>
+                        <div class="ui teal basic left pointing label m-padded-tb-tiny">MySQL</div>
+                        <div class="ui teal basic left pointing label m-padded-tb-tiny">Css</div>
+                        <div class="ui teal basic left pointing label m-padded-tb-tiny">...</div>
+                    </div>
+                    <div class="ui bottom attached segment">
+                        <a href="" class="ui circular icon button"><i class="github icon"></i></a>
+                        <a href="" class="ui wechat circular icon button"><i class="weixin icon"></i></a>
+                        <a href="" class="ui qq circular icon button" data-content="756311868" data-position="bottom center"><i class="qq icon"></i></a>
+                    </div>
+
+                    <div class="ui wechat-qr flowing popup top left transition hidden">
+                        <img src="../static/images/wechat.jpg" alt="" class="ui rounded bordered image" style="width: 110px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 主体部分 结束 -->
+
+    <!-- 底部部分 开始 -->
+    <footer th:replace="common/common_fragment :: footer"></footer>
+    <!-- 底部部分 结束 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <script>
+        $('.menu.toggle').click(function () {
+            $('.m-item').toggleClass('m-mobile-hide');
+        });
+
+        $('.qq').popup();
+
+        $('.wechat').popup({
+            popup: $('.wechat-qr'),
+            on: 'hover',
+            position: 'bottom center'
+        })
+    </script>
+</body>
+
+</html>

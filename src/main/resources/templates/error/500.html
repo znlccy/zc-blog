@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="common/common_fragment :: head(~{::title})">
+    <title>500</title>
+</head>
+<body>
+
+<nav th:replace="common/common_fragment :: menu(1)"></nav>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="m-container m-padded-tb-massive">
+    <div class="ui error message m-padded-tb-huge">
+        <div class="ui container">
+            <h2>500</h2>
+            <p>对不起，服务器内部出现错误</p>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<!-- 底部部分 开始 -->
+<footer th:replace="common/common_fragment :: footer"></footer>
+<!-- 底部部分 结束 -->
+
+<!-- 公共JS 开始 -->
+<th:block th:replace="common/common_fragment :: script"></th:block>
+<!-- 公共JS 结束 -->
+</body>
+</html>

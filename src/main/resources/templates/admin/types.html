@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="admin/admin_fragment::head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1.0">
+    <title>博客分类页</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="../../css/me.css">
+</head>
+<body>
+
+    <!-- 导航部分 开始 -->
+    <nav th:replace="admin/admin_fragment::menu(2)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+
+    </nav>
+    <!-- 导航部分 结束 -->
+
+    <div class="ui attached pointing menu">
+        <div class="ui container">
+            <div class="right menu">
+                <a href=""# th:href="@{/admin/types/input}" class="item">新增</a>
+                <a href=""# th:href="@{/admin/types}" class="active teal item">列表</a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- 主体部分 开始 -->
+    <div class="m-container m-padded-tb-big">
+        <div class="ui container">
+
+            <table class="ui celled table">
+                <div class="ui success message" th:unless="${#strings.isEmpty(message)}">
+                    <i class="close icon"></i>
+                    <div class="header">提示:</div>
+                    <p th:text="${message}">恭喜，操作成功！</p>
+                </div>
+                <thead>
+                    <tr align="center">
+                        <th>编号</th>
+                        <th>名称</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="type,iterStat : ${page.content}" align="center">
+                        <td th:text="${iterStat.count}">1</td>
+                        <td th:text="${type.name}">双方各i</td>
+                        <td>
+                            <a href="#" th:href="@{/admin/types/{id}/input(id=${type.id})}" class="ui teal basic mini button">编辑</a>
+                            <a href="#" th:href="@{/admin/types/{id}/delete(id=${type.id})}" class="ui red basic mini button">删除</a>
+                        </td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
+                <tr>
+                    <th colspan="6">
+                        <div class="ui mini pagination menu" th:if="${page.totalPages}>1">
+                            <a href="" th:href="@{/admin/types(page=${page.number}-1)}" class="item" th:unless="${page.first}">上一页</a>
+                            <a href="" th:href="@{/admin/types(page=${page.number}+1)}" class="item" th:unless="${page.last}">下一页</a>
+                        </div>
+                        <a href="#" th:href="@{/admin/types/input}" class="ui mini teal basic right floated button">新增</a>
+                    </th>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <!-- 主体部分 结束 -->
+
+    <!-- 底部部分 开始 -->
+    <footer th:replace="admin/admin_fragment::footer" class="ui inverted vertical segment m-padded-tb-massive">
+
+    </footer>
+    <!-- 底部部分 结束 -->
+
+    <!--/*/<th:block th:replace="admin/admin_fragment :: script">/*/-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <!--/*/</th:block>/*/-->
+
+    <script>
+        $('.menu.toggle').click(function () {
+            $('.m-item').toggleClass('m-mobile-hide');
+        });
+
+        $('.ui.dropdown').dropdown({
+            on: 'hover'
+        });
+
+        $('.message .close').on('click', function () {
+            $(this).closest('.message')
+                .transition('fade');
+        });
+    </script>
+</body>
+
+</html>
